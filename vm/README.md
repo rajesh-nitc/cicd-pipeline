@@ -1,4 +1,4 @@
-## java-webapp-jenkins
+## vm
 
 create ssh keys for the rajesh_nitc_gcp user:
 ssh-keygen -t rsa -C "The access key for"
