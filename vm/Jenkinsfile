@@ -1,0 +1,36 @@
+pipeline {
+    agent {
+        docker {
+            image 'maven:3.3-jdk-8'
+            args '-v /home/rajesh_nitc_gcp/.m2:/root/.m2'
+        }
+    }
+    options {
+        skipStagesAfterUnstable()
+    }
+    stages {
+        stage('Build') {
+            
+            steps {
+                echo "Running ${env.BUILD_ID}"
+                sh 'echo $BUILD_ID'
+                sh 'printenv'
+                sh 'mvn clean package'
+            }
+        }
+
+        stage('Deploy') {
+            
+            environment { 
+                PUBLIC_IP = '34.93.225.12'
+            }
+            
+            steps {
+                sshagent ( ['eaa6e180-5263-4764-aa2a-f4d1b88d01c8']) {
+                    sh 'scp -o StrictHostKeyChecking=no target/*.jar rajesh_nitc_gcp@"$PUBLIC_IP":/opt/app/target'
+                    sh 'ssh -tt -o StrictHostKeyChecking=no -l rajesh_nitc_gcp $PUBLIC_IP "pwd; sudo supervisorctl restart javaapp"'
+                }
+            }
+        }
+    }
+}
