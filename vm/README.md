@@ -21,7 +21,7 @@ SonarQube server side: \
 user token User/My Account/Security/Generate Tokens \
 webhook for quality gate Administration/Configuration/Webhooks/Create http://{JENKINS_HOST}/sonarqube-webhook/
 
-SonarQube jenkins side:
+SonarQube jenkins side: \
 Install SonarQube Scanner plugin \
 Setup SonarQube server Manage Jenkins/Configure System/SonarQube servers Copy the name \
 Setup SonarQube scanner Manage Jenkins/Global Tool Configuration/SonarQube Scanner Copy the name
@@ -40,7 +40,6 @@ install ssh agent plugin
 give permission to rajesh_nitc_gcp to scp the jar file in the target folder: \
 sudo chown -R rajesh_nitc_gcp /opt/app
 
-sudo: no tty present and no askpass program specified' error?: \
-if sudo command is being used in the cicd pipeline, setting below command is must \
+Resolve sudo: no tty present and no askpass program specified' error?: \
 sudo visudo \
 rajesh_nitc_gcp ALL=(ALL) NOPASSWD: ALL
