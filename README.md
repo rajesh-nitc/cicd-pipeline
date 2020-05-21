@@ -2,7 +2,6 @@
 
 ### start jenkins container
 ```
-docker run -d --name sonarqube -p 9000:9000 sonarqube \
 docker run \
   --rm \
   -u root \
@@ -13,7 +12,10 @@ docker run \
   -d \
   jenkinsci/blueocean
 ```
-
+### start sonarqube container
+```
+docker run -d --name sonarqube -p 9000:9000 sonarqube
+```
 ### sonarqube server side
 get user token ```User/My Account/Security/Generate Tokens``` \
 get webhook for quality gate ```Administration/Configuration/Webhooks/Create http://{JENKINS_HOST}/sonarqube-webhook/```
