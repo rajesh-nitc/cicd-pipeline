@@ -1,4 +1,4 @@
-## CI/CD Pipeline
+## CI/CD
 CI/CD pipeline for a springboot application, the deployment environment is a single instance
 
 ## Getting Started
