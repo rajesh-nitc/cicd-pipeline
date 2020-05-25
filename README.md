@@ -18,16 +18,26 @@ docker run \
 ```
 docker run -d --name sonarqube -p 9000:9000 sonarqube
 ```
-Setup on the server side:
+1. Setup on the server side:
 
-Get user token ```User/My Account/Security/Generate Tokens``` \
-Get webhook for quality gate ```Administration/Configuration/Webhooks/Create http://{JENKINS_HOST}/sonarqube-webhook/```
+Get user token 
 
-Setup on jenkins side:
+```User/My Account/Security/Generate Tokens```
+
+Get webhook for quality gate
+
+```Administration/Configuration/Webhooks/Create http://{JENKINS_HOST}/sonarqube-webhook/```
+
+2. Setup on the jenkins side:
 
 Install sonarqube scanner plugin \
-Setup sonarqube server ```Manage Jenkins/Configure System/SonarQube servers``` \
-Setup sonarqube scanner ```Manage Jenkins/Global Tool Configuration/SonarQube Scanner```
+Setup sonarqube server 
+
+```Manage Jenkins/Configure System/SonarQube servers```
+
+Setup sonarqube scanner
+
+```Manage Jenkins/Global Tool Configuration/SonarQube Scanner```
 
 ### Deploy
 Create ssh keys for the rajesh_nitc_gcp user:
